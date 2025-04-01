@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="serif"
         android:gravity="center"
-        android:text="MEAL MATCH"
+        android:text="FEAST TIME"
         android:textSize="37dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
