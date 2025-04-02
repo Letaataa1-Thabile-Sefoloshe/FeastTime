@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
+        //Identify id attributes from XML layout
         inputEditText = findViewById(R.id.inputEditText)
         generateBtn = findViewById(R.id.generalBtn)
         clearBtn = findViewById(R.id.clearBtn)
@@ -38,7 +39,7 @@ class MainActivity : AppCompatActivity() {
             exitBtnMatchOnClick()
         }
     }
-
+    //Shares error message if the user does not insert input
     private fun timeInputisNotEmpty() : Boolean{
 
         var t = true
@@ -55,16 +56,17 @@ class MainActivity : AppCompatActivity() {
         val timeInput = answer.text.toString()
         var time = timeInput.toIntOrNull()
         if (time == null) {
-            answer.text = "Invalid Time!"
+            answer.text = "Input required"
 
         }
+            //The range of time in which the user can access the app
         if (time != null) {
             if (time < 500 || time > 2230) {
                 answer.text = "Invalid Time!"
             }
         }
-
-        val meal = inputEditText.text.toString().trim().toInt()
+            // Various meals that will be generated predicated on the time the user inputs
+            val meal = inputEditText.text.toString().trim().toInt()
 
         when (meal) {
             in 500..859 -> answer.text = "Buttermilk Pancake\n French Toast\n Avocado Toast\n (Green, Berry, Banna)Smoothie"
@@ -80,12 +82,12 @@ class MainActivity : AppCompatActivity() {
         }}
 
     }
-
+    // Clear the user's input including generated answers
     private fun clearBtnMatchOnClick() {
         inputEditText.text.clear()
         answer.text = ""
     }
-
+    // Exit the application
     private fun exitBtnMatchOnClick() {
         finishAffinity()
         exitProcess(0)
